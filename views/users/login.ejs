@@ -1,0 +1,31 @@
+<% layout('layouts/boilerplate') %>
+<div class="container justify-content-center align-items-center mt-5">
+	<div class="row">
+		<div class="col-md-6 offset-md-3 col-xl-4 offset-xl-4">
+			<div class="card mb-3 nightBG">
+				<div class="card m-3 neonBG">
+					<div class="card-body">
+						<h5 class="card-title text-center mdText contentFont">Portail des membres</h5>
+						<form action="/login" method="POST" class="validateForm" novalidate>
+							<div class="mb-3">
+								<label class="form-label smText contentFont" for="username">Nom d'utilisateur</label>
+								<input class="form-control" type="text" id="username" name="username" placeholder="Nom d'utilisateur" autofocus required>
+								<div class="valid-feedback xsText contentFont">
+									&Ccedil;a c'est g&eacute;nial!
+								</div>
+							</div>
+							<div class="mb-3">
+								<label class="form-label smText contentFont" for="password">Mot de passe</label>
+								<input class="form-control" type="password" id="password" name="password" placeholder="Mot de passe" required>
+								<div class="valid-feedback xsText contentFont">
+									Excellent!
+								</div>
+							</div>
+							<button class="neonBtn mdBtn w-100">Connexion</button>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

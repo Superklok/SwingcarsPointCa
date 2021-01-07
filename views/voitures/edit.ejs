@@ -1,0 +1,64 @@
+<% layout('layouts/boilerplate') %>
+<div class="row">
+	<div class="card mb-3 nightBG">
+		<div class="card m-3 neonBG">
+			<div class="card-body">
+				<h1 class="text-center mdText contentFont">Modification de la voiture</h1>
+				<div class="col-lg-6 offset-lg-3 col-xl-8 offset-xl-2">
+					<form action="/voitures/<%=voiture._id%>?_method=PUT" method="POST" novalidate class="validateForm" enctype="multipart/form-data">
+						<div class="mb-3">
+							<label class="form-label smText contentFont" for="nom">Nom</label>
+							<input class="form-control" type="text" id="nom" name="voiture[nom]" value="<%=voiture.nom%>" autofocus required>
+							<div class="valid-feedback xsText contentFont">
+								&Ccedil;a c'est g&eacute;nial!
+							</div>
+						</div>
+						<div class="mb-3">
+							<label for="image" class="form-label smText contentFont">Ajoute image(s)...</label>
+							<input class="form-control" type="file" id="image" multiple name="image">
+						</div>
+						<div class="mb-3">
+							<label class="form-label smText contentFont" for="localisation">Localisation</label>
+							<input class="form-control" type="text" id="localisation" name="voiture[localisation]" value="<%=voiture.localisation%>" required>
+							<div class="valid-feedback xsText contentFont">
+								Joli quartier!
+							</div>
+						</div>
+						<div class="mb-3">
+							<label class="form-label smText contentFont" for="prix">Prix par fl&acirc;ne</label>
+							<div class="input-group">
+								<span class="input-group-text noTextShadow" id="price-label">CA$</span>
+								<input type="text" class="form-control" id="prix" placeholder="0.00" aria-label="prix" aria-describedby="price-label" name="voiture[prix]" value="<%=voiture.prix%>" required>
+								<div class="valid-feedback xsText contentFont">
+									Accord solide!
+								</div>
+							</div>
+						</div>
+						<div class="mb-3">
+							<label class="form-label smText contentFont" for="sommaire">Sommaire</label>
+							<textarea class="form-control" type="text" id="sommaire" name="voiture[sommaire]" required><%= voiture.sommaire %></textarea>
+							<div class="valid-feedback xsText contentFont">
+								R&eacute;sum&eacute; m&eacute;chant!
+							</div>
+						</div>
+						<div class="mb-3">
+							<% voiture.images.forEach(function(img, i) { %>
+							<img src="<%= img.thumbnail %>" class="img-thumbnail" alt="">
+							<div class="form-check-inline">
+								<input type="checkbox" id="image-<%= i %>" name="destroyImg[]" value="<%= img.filename %>">
+							</div>
+							<label class="neonBtn mdBtn" for="image-<%= i %>">Supprimer</label>
+							<% }) %>
+						</div>
+						<div class="mb-3">
+							<button class="neonBtn mdBtn">Modifier la voiture</button>
+						</div>
+					</form>
+					<div>
+						<a class="neonBtn mdBtn" href="/voitures/<%= voiture._id %>">Retour &agrave; la voiture</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

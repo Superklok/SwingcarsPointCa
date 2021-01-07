@@ -1,0 +1,45 @@
+<% layout('layouts/boilerplate') %>
+<div class="container justify-content-center align-items-center mt-5">
+	<div class="row">
+		<div class="col-md-6 offset-md-3 col-xl-4 offset-xl-4">
+			<div class="card mb-3 nightBG">
+				<div class="card m-3 neonBG">
+					<div class="card-body">
+						<h5 class="card-title text-center mdText contentFont">Inscription de membre</h5>
+						<form action="/register" method="POST" class="validateForm" novalidate>
+							<div class="mb-3">
+								<label class="form-label smText contentFont" for="username">Nom d'utilisateur</label>
+								<input class="form-control" type="text" id="username" name="username" placeholder="Nom d'utilisateur" autofocus required>
+								<div class="valid-feedback xsText contentFont">
+									&Ccedil;a c'est g&eacute;nial!
+								</div>
+							</div>
+							<div class="mb-3">
+								<label class="form-label smText contentFont" for="courriel">Courriel</label>
+								<input class="form-control" type="email" id="courriel" name="courriel" placeholder="Courriel" required>
+								<div class="valid-feedback xsText contentFont">
+									Parfait!
+								</div>
+							</div>
+							<div class="mb-3">
+								<label class="form-label smText contentFont" for="password">Mot de passe</label>
+								<input class="form-control" type="password" id="password" name="password" placeholder="Mot de passe" required>
+								<div class="valid-feedback xsText contentFont">
+									Excellent!
+								</div>
+							</div>
+							<div class="mb-3">
+								<label class="form-label smText contentFont" for="codeMembre">Code de membre</label>
+								<input class="form-control" type="text" id="codeMembre" name="codeMembre" placeholder="Code de membre" required>
+								<div class="valid-feedback xsText contentFont">
+									Merci d'avoir &eacute;valu&eacute; Swingcars!
+								</div>
+							</div>
+							<button class="neonBtn mdBtn w-100">Inscrire</button>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

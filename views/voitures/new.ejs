@@ -1,0 +1,58 @@
+<% layout('layouts/boilerplate') %>
+<div class="row">
+	<div class="card mb-3 nightBG">
+		<div class="card m-3 neonBG">
+			<div class="card-body">
+				<h1 class="text-center mdText contentFont">Nouvelle voiture</h1>
+				<div class="col-lg-6 offset-lg-3 col-xl-8 offset-xl-2">
+					<form action="/voitures" method="POST" novalidate class="validateForm" enctype="multipart/form-data">
+						<div class="mb-3">
+							<label class="form-label smText contentFont" for="nom">Nom</label>
+							<input class="form-control" type="text" id="nom" name="voiture[nom]" placeholder="Nom" autofocus required>
+							<div class="valid-feedback xsText contentFont">
+								&Ccedil;a c'est g&eacute;nial!
+							</div>
+						</div>
+						<div class="mb-3">
+							<label for="image" class="form-label smText contentFont">Choisir image(s)...</label>
+							<input class="form-control" type="file" id="image" multiple name="image" required>
+							<div class="valid-feedback xsText contentFont">
+								&Ccedil;a l'air super!
+							</div>
+						</div>
+						<div class="mb-3">
+							<label class="form-label smText contentFont" for="localisation">Localisation</label>
+							<input class="form-control" type="text" id="localisation" name="voiture[localisation]" placeholder="Localisation" required>
+							<div class="valid-feedback xsText contentFont">
+								Joli quartier!
+							</div>
+						</div>
+						<div class="mb-3">
+							<label class="form-label smText contentFont" for="prix">Prix par fl&acirc;ne</label>
+							<div class="input-group">
+								<span class="input-group-text noTextShadow" id="price-label">CA$</span>
+								<input type="text" class="form-control" id="prix" placeholder="0.00" aria-label="prix" aria-describedby="price-label" name="voiture[prix]" required>
+								<div class="valid-feedback xsText contentFont">
+									Accord solide!
+								</div>
+							</div>
+						</div>
+						<div class="mb-3">
+							<label class="form-label smText contentFont" for="sommaire">Sommaire</label>
+							<textarea class="form-control" type="text" id="sommaire" name="voiture[sommaire]" required></textarea>
+							<div class="valid-feedback xsText contentFont">
+								R&eacute;sum&eacute; m&eacute;chant!
+							</div>
+						</div>
+						<div class="mb-3">
+							<button class="neonBtn mdBtn">Ajoute voiture</button>
+						</div>
+					</form>
+					<div>
+						<a class="neonBtn mdBtn" href="/voitures">Toutes les voitures</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

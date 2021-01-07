@@ -1,0 +1,106 @@
+<% layout('layouts/boilerplate') %>
+<div class="row">
+	<div class="col-lg-6">
+		<div id="voitureCarousel" class="carousel slide mb-3" data-bs-ride="carousel" data-bs-interval="false">
+			<div class="carousel-inner">
+				<% voiture.images.forEach((img, i) => { %>
+				<div class="carousel-item <%= i === 0 ? 'active' : '' %>">
+					<img src="<%= img.url %>" class="d-block w-100" alt="">
+				</div>
+				<% }) %>
+			</div>
+			<% if(voiture.images.length > 1) { %>
+			<a class="carousel-control-prev" href="#voitureCarousel" role="button" data-bs-slide="prev">
+				<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+				<span class="visually-hidden">Pr&eacute;c&eacute;dente</span>
+			</a>
+			<a class="carousel-control-next" href="#voitureCarousel" role="button" data-bs-slide="next">
+				<span class="carousel-control-next-icon" aria-hidden="true"></span>
+				<span class="visually-hidden">Prochaine</span>
+			</a>
+			<% } %>
+		</div>
+		<div class="card mb-3 nightBG">
+			<div class="card m-3 neonBG">
+				<div class="card-body">
+					<h5 class="card-title mdText contentFont"><%= voiture.nom %></h5>
+					<p class="card-text smText contentFont"><span class="neonBtn mdBtn"><%= voiture.automobiliste.username %></span> a ajout&eacute; cette voiture</p>
+					<p class="card-text smText contentFont"><%= voiture.sommaire %></p>
+					<p class="card-text smText contentFont"><%= voiture.localisation %></p>
+					<p class="smText"><span class="defFont">CA$</span><span class="contentFont"><%= voiture.prix %>/Fl&acirc;ne</span></p>
+				</div>
+				<% if (currentUser && voiture.automobiliste.equals(currentUser._id)) { %>
+				<div class="card-body">
+					<a class="neonBtn mdBtn me-5" href="/voitures/<%= voiture._id %>/edit">Modifier</a>
+					<form class="d-inline" action="/voitures/<%= voiture._id %>?_method=DELETE" method="POST">
+						<button class="neonBtn mdBtn">Supprimer</button>
+					</form>
+				</div>
+				<% } %>
+				<div class="card-footer">
+					<a class="neonBtn mdBtn" href="/voitures">Toutes les voitures</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="col-lg-6">
+		<div id="showPageMap" class="noTextShadow mb-3 rounded"></div>
+		<% if (currentUser) { %>
+		<div class="card mb-3 nightBG">
+			<div class="card m-3 neonBG">
+				<div class="card-body">
+					<h2 class="mb-5 mdText contentFont">Laissez votre avis</h2>
+					<form action="/voitures/<%= voiture._id %>/critiques" method="POST" class="mb-3 validateForm" novalidate>
+						<div class="ms-5 mb-3 noTextShadow">
+							<fieldset class="starability-growRotate">
+								<input type="radio" id="no-rate" class="input-no-rate" name="critique[note]" value="0" checked aria-label="Aucune note." />
+								<input type="radio" id="first-rate1" name="critique[note]" value="1" />
+								<label for="first-rate1" title="Affreux">1 star</label>
+								<input type="radio" id="first-rate2" name="critique[note]" value="2" />
+								<label for="first-rate2" title="Pas bon">2 stars</label>
+								<input type="radio" id="first-rate3" name="critique[note]" value="3" />
+								<label for="first-rate3" title="Moyenne">3 stars</label>
+								<input type="radio" id="first-rate4" name="critique[note]" value="4" />
+								<label for="first-rate4" title="Tr&egrave;s bonne">4 stars</label>
+								<input type="radio" id="first-rate5" name="critique[note]" value="5" />
+								<label for="first-rate5" title="Incroyable">5 stars</label>
+							</fieldset>
+						</div>
+						<div class="mb-3">
+							<label class="form-label mdText contentFont" for="body">Critique</label>
+							<textarea class="form-control" name="critique[body]" id="body" cols="30" rows="3" required></textarea>
+							<div class="valid-feedback xsText contentFont">
+								Merci!
+							</div>
+						</div>
+						<button class="neonBtn mdBtn">Soumettre</button>
+					</form>
+				</div>
+			</div>
+		</div>
+		<% } %>
+		<% for(let critique of voiture.critiques) { %>
+		<div class="card mb-3 nightBG">
+			<div class="card m-3 neonBG">
+				<div class="card-body">
+					<h5 class="card-title neonBtn mdBtn"><%= critique.automobiliste.username %></h5>
+					<p class="starability-result" data-rating="<%= critique.note %>">
+						<span class="srRating">Not&eacute; <%= critique.note %> &eacute;toiles</span>
+					</p>
+					<p class="card-text smText contentFont">"<%= critique.body %>"</p>
+					<% if (currentUser && critique.automobiliste.equals(currentUser._id)) { %>
+					<form action="/voitures/<%= voiture._id %>/critiques/<%= critique._id %>?_method=DELETE" method="POST">
+						<button class="neonBtn mdBtn">Supprimer</button>
+					</form>
+					<% } %>
+				</div>
+			</div>
+		</div>
+		<% } %>
+	</div>
+</div>
+<script>
+	const mapToken = '<%- process.env.MAPBOX_TOKEN %>';
+	const voiture = <%- JSON.stringify(voiture) %>;
+</script>
+<script src="/scripts/showPageMap.js"></script>
