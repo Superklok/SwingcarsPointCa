@@ -3,14 +3,14 @@
 	<div class="card mb-3 nightBG">
 		<div class="card m-3 neonBG">
 			<div class="card-body">
-				<h1 class="text-center mdText contentFont">Modification de la voiture</h1>
+				<h1 class="text-center mdText contentFont">Modifiez cette voiture</h1>
 				<div class="col-lg-6 offset-lg-3 col-xl-8 offset-xl-2">
 					<form action="/voitures/<%=voiture._id%>?_method=PUT" method="POST" novalidate class="validateForm" enctype="multipart/form-data">
 						<div class="mb-3">
 							<label class="form-label smText contentFont" for="nom">Nom</label>
 							<input class="form-control" type="text" id="nom" name="voiture[nom]" value="<%=voiture.nom%>" autofocus required>
 							<div class="valid-feedback xsText contentFont">
-								&Ccedil;a c'est g&eacute;nial!
+								G&eacute;nial!
 							</div>
 						</div>
 						<div class="mb-3">
@@ -51,11 +51,11 @@
 							<% }) %>
 						</div>
 						<div class="mb-3">
-							<button class="neonBtn mdBtn">Modifier la voiture</button>
+							<button class="neonBtn mdBtn">Modifiez la voiture</button>
 						</div>
 					</form>
 					<div>
-						<a class="neonBtn mdBtn" href="/voitures/<%= voiture._id %>">Retour &agrave; la voiture</a>
+						<a class="neonBtn mdBtn" href="/voitures/<%= voiture._id %>">Retournez &agrave; la voiture</a>
 					</div>
 				</div>
 			</div>
