@@ -7,7 +7,7 @@ module.exports.renderRegister = (req, res) => {
 module.exports.register = async (req, res, next) => {
 	try {
 		const { courriel, username, password } = req.body;
-		const user = new User({ courriel, username });
+		const user = await new User({ courriel, username });
 		if(req.body.codeMembre === process.env.CODE_MEMBRE){
 		user.isMembre = true;
 			} else {
