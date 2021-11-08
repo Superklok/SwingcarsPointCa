@@ -35,7 +35,7 @@ module.exports.voitureSchema = Joi.object({
 
 module.exports.critiqueSchema = Joi.object({
 	critique: Joi.object({
-		note: Joi.number().required().min(0).max(5),
+		note: Joi.number().required().min(1).max(5),
 		body: Joi.string().required().escapeHTML()
 	}).required()
 });
