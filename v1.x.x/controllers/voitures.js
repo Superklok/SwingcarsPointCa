@@ -1,8 +1,8 @@
-const Voiture = require('../models/voiture');
-const mbxGeocoding = require('@mapbox/mapbox-sdk/services/geocoding');
-const mapBoxToken = process.env.MAPBOX_TOKEN;
-const geocoder = mbxGeocoding({ accessToken: mapBoxToken });
-const { cloudinary } = require('../cloudinary');
+const Voiture        = require('../models/voiture'),
+	  mbxGeocoding   = require('@mapbox/mapbox-sdk/services/geocoding'),
+	  mapBoxToken    = process.env.MAPBOX_TOKEN,
+	  geocoder       = mbxGeocoding({ accessToken: mapBoxToken }),
+	  { cloudinary } = require('../cloudinary');
 
 module.exports.index = async (req, res) => {
 	if (!req.query.page) {
@@ -35,7 +35,7 @@ module.exports.createVoiture = async (req, res, next) => {
 	res.redirect(`/voitures/${ voiture._id }`);
 }
 
-module.exports.showVoiture = async(req, res) => {
+module.exports.showVoiture = async (req, res) => {
 	const voiture = await Voiture.findById(req.params.id).populate({
 		path: 'critiques',
 		populate: {

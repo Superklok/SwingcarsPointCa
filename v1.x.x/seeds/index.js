@@ -2,15 +2,17 @@ if (process.env.NODE_ENV !== "production") {
 	require('dotenv').config();
 }
 
-const mongoose = require('mongoose');
-const { marques, types } = require('./voitureNoms');
-const { sommaires } = require('./voitureSommaires');
-const voitureLocalisations = require('./voitureLocalisations');
-const voitureImg1 = require('./voitureImg1');
-const voitureImg2 = require('./voitureImg2');
-const Voiture = require('../models/voiture');
+const mongoose             = require('mongoose'),
+	  { marques, types }   = require('./voitureNoms'),
+	  { sommaires }        = require('./voitureSommaires'),
+	  voitureLocalisations = require('./voitureLocalisations'),
+	  voitureImg1          = require('./voitureImg1'),
+	  voitureImg2          = require('./voitureImg2'),
+	  Voiture              = require('../models/voiture');
+
 // Base de données de production
 // const urlBd = process.env.URL_BD;
+
 // Base de données de développement
 const urlBd = 'mongodb://localhost:27017/swingcarspointca';
 
@@ -36,11 +38,15 @@ const seedDB = async () => {
 		const random30Img2 = Math.floor(Math.random() * 30);
 		const prix = Math.floor(Math.random() * 10) + 10;
 		const voiture = new Voiture({
-			// automobiliste: 'ObjectId' (Dans le Shell MongoDB, lancez db.users.find() dès qu'un utilisateur a été créé.)
+
+			// **automobiliste: 'ObjectId' (Dans le Shell MongoDB, lancez db.users.find() dès qu'un utilisateur a été créé.)**
+
 			// Utilisateur de la base de données de production
 			// automobiliste: '5ff6555fa257e617f82b3e12',
+
 			// Utilisateur de la base de données de développement
 			automobiliste: '5ff61a13ff51953d903366b2',
+			
 			nom: `${ sample(marques)} ${sample(types) }`,
 			localisation: `${ voitureLocalisations[random14].ville }, ${ voitureLocalisations[random14].province }`,
 			sommaire: `${ sample(sommaires) }`,

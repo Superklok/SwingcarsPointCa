@@ -1,7 +1,7 @@
-const mongoose = require('mongoose');
-const Critique = require('./critique');
-const Schema = mongoose.Schema;
-const mongoosePaginate = require('mongoose-paginate-v2');
+const mongoose         = require('mongoose'),
+	  Critique         = require('./critique'),
+	  Schema           = mongoose.Schema,
+	  mongoosePaginate = require('mongoose-paginate-v2');
 
 const ImageSchema = new Schema({
 	url: String,
