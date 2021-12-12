@@ -1,6 +1,6 @@
 {
   "name": "swingcarspointca",
-  "version": "0.5.10",
+  "version": "0.5.12",
   "description": "Swingcars (Français)",
   "main": "app.js",
   "scripts": {
