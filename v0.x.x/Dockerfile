@@ -1,10 +1,10 @@
-FROM node:17.2.0-alpine3.14 as base
+FROM node:20.10.0-alpine3.19 as base
 LABEL org.opencontainers.image.vendor="Superklok Labs"
-LABEL org.opencontainers.image.authors="trev@superklok.ca"
+LABEL org.opencontainers.image.authors="trev@superklok.com"
 LABEL org.opencontainers.image.title="SwingcarsPointCa"
 LABEL org.opencontainers.image.description="Swingcars (Français)"
-LABEL org.opencontainers.image.version="0.5.14"
-LABEL org.opencontainers.image.created="2021-12-12"
+LABEL org.opencontainers.image.version="0.5.18"
+LABEL org.opencontainers.image.created="2024-01-11"
 LABEL org.opencontainers.image.url="https://hub.docker.com/r/superklok/swingcarspointca"
 LABEL org.opencontainers.image.source="https://github.com/Superklok/SwingcarsPointCa"
 LABEL org.opencontainers.image.licenses="ISC"

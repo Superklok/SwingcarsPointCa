@@ -2,7 +2,7 @@ version: "3.8"
 
 services:
   app:
-    image: superklok/swingcarspointca:0.5.14
+    image: superklok/swingcarspointca:0.5.18
     build: 
       context: .
       target: prod

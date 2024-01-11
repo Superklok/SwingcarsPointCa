@@ -1,6 +1,6 @@
 {
   "name": "swingcarspointca",
-  "version": "1.4.18",
+  "version": "1.4.21",
   "description": "Swingcars (Français)",
   "main": "app.js",
   "scripts": {
@@ -11,12 +11,11 @@
     "type": "git",
     "url": "https://github.com/Superklok/SwingcarsPointCa.git"
   },
-  "author": "Trev Morin <trev@superklok.ca> (http://trevmorin.ca)",
+  "author": "Trevor Morin <trev@superklok.com> (https://superkloklabs.com)",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/Superklok/SwingcarsPointCa/issues"
   },
-  "homepage": "http://swingcars.ca",
   "dependencies": {
     "@mapbox/mapbox-sdk": "^0.11.0",
     "cloudinary": "^1.23.0",
